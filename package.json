@@ -1,0 +1,37 @@
+{
+  "name": "google-maps-marker-tool",
+  "version": "0.1.0",
+  "description": "This is a tool for generate embed Google Maps with marker.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CalvertYang/google-maps-marker-tool"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --colors",
+    "build": "webpack --config webpack-production.config.js --progress --colors"
+  },
+  "author": "Calvert Yang",
+  "license": "MIT",
+  "dependencies": {
+    "alt": "^0.17.1",
+    "jquery": "^2.1.4",
+    "material-ui": "^0.11.0",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "autoprefixer-core": "^5.2.1",
+    "babel-core": "^5.8.22",
+    "babel-loader": "^5.3.2",
+    "css-loader": "^0.16.0",
+    "js-beautify": "^1.5.10",
+    "lodash": "^3.10.1",
+    "postcss-color-rebeccapurple": "^1.2.0",
+    "postcss-loader": "^0.6.0",
+    "react-highlight": "^0.5.0",
+    "react-hot-loader": "^1.2.9",
+    "style-loader": "^0.12.3",
+    "transfer-webpack-plugin": "^0.1.4",
+    "webpack": "^1.12.0",
+    "webpack-dev-server": "^1.10.1"
+  }
+}
