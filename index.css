@@ -1,0 +1,22 @@
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+   height: calc(100vh - 64px);
+}
+
+.flex {
+  -webkit-flex: 1;
+     -moz-flex: 1;
+   -ms-flexbox: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    height: calc(100vh - 56px);
+  }
+}
