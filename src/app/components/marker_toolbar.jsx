@@ -72,7 +72,7 @@ export default class MarkerToolbar extends React.Component {
           <style>
             html, body, #${this.state.domIdForMap} { height: 100%; margin: 0; padding: 0; }
           </style>
-          <script src="https://maps.googleapis.com/maps/api/js"></script>
+          <script src="https://maps.googleapis.com/maps/api/js${this.state.apiKey === '' ? '' : '?key=' + this.state.apiKey}"></script>
           <script>
           ${this._getJavascriptSourceCode()}
           </script>
@@ -301,6 +301,7 @@ export default class MarkerToolbar extends React.Component {
       newDomIdForMap: this.refs.newDomIdForMap.getValue().trim(),
       newCustomFieldOneName: this.refs.newCustomFieldOneName.getValue().trim(),
       newCustomFieldTwoName: this.refs.newCustomFieldTwoName.getValue().trim(),
+      newApiKey: this.refs.newApiKey.getValue().trim(),
     }
 
     MarkerActions.updateCustomizeSetting(data);
@@ -403,22 +404,31 @@ export default class MarkerToolbar extends React.Component {
           ref="customizeDialog"
         >
           <TextField
-            floatingLabelText={`HTML DOM id for mount Google Maps (Current: #${this.state.domIdForMap})`}
+            floatingLabelText={`HTML DOM id for mount Google Maps`}
+            defaultValue={this.state.domIdForMap}
             fullWidth={true}
             ref="newDomIdForMap"
           />
 
           <TextField
             floatingLabelText={`Change name of field '${this.state.customFieldOneName}'`}
+            defaultValue={this.state.customFieldOneName}
             fullWidth={true}
             ref="newCustomFieldOneName"
           />
 
           <TextField
-            floatingLabelText={`Change name of field '${this.state.customFieldTwoName}'`}
-            hintText="This field will be use to find location latitude and longitude"
+            floatingLabelText={`Change name of field '${this.state.customFieldTwoName}' (Find latitude and longitude by this field)`}
+            defaultValue={this.state.customFieldTwoName}
             fullWidth={true}
             ref="newCustomFieldTwoName"
+          />
+
+          <TextField
+            floatingLabelText={`Google Maps JavaScript API Key (Leave blank if you don't have key)`}
+            defaultValue={this.state.apiKey}
+            fullWidth={true}
+            ref="newApiKey"
           />
         </Dialog>
 

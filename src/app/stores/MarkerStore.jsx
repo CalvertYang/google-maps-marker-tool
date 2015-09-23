@@ -11,6 +11,7 @@ class MarkerStore {
       domIdForMap: "map-canvas",
       customFieldOneName: "Title",
       customFieldTwoName: "Address",
+      apiKey: "",
       locations : [],
       centerLocationId: 0,
       currentIndex: 0,
@@ -64,6 +65,7 @@ class MarkerStore {
         domIdForMap: this.state.domIdForMap,
         customFieldOneName: this.state.customFieldOneName,
         customFieldTwoName: this.state.customFieldTwoName,
+        apiKey: this.state.apiKey,
         locations: locations,
       };
 
@@ -120,6 +122,8 @@ class MarkerStore {
     if (data.newCustomFieldTwoName !== "") {
       newState["customFieldTwoName"] = data.newCustomFieldTwoName;
     }
+
+    newState["apiKey"] = data.newApiKey;
 
     this.setState(newState);
     this.generateExportDataUrl();
@@ -206,6 +210,7 @@ class MarkerStore {
     this.state.domIdForMap = data.domIdForMap;
     this.state.customFieldOneName = data.customFieldOneName;
     this.state.customFieldTwoName = data.customFieldTwoName;
+    this.state.apiKey = data.apiKey || '';
 
     data.locations.forEach(importLocation => {
       let location = {
